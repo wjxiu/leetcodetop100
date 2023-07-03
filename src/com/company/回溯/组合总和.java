@@ -1,6 +1,7 @@
 package com.company.回溯;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,6 +26,29 @@ public class 组合总和 {
         }
         if (sum>target) return ;
         for (int i = startindex; i < candidates.length; i++) {
+            path.add(candidates[i]);
+            sum+=candidates[i];
+            dfs(candidates,target,i,sum);
+            sum-=candidates[i];
+            path.remove(path.size()-1);
+        }
+    }
+
+
+    //    剪枝后的
+    public List<List<Integer>> combinationSum1(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        dfs(candidates,target,0,0);
+        System.out.println(result);
+        return result;
+    }
+    //    剪枝后的
+    void dfs1(int[] candidates,int target,int startindex,int sum){
+        if (sum==target){
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = startindex; i < candidates.length&&sum+candidates[i]<=target; i++) {
             path.add(candidates[i]);
             sum+=candidates[i];
             dfs(candidates,target,i,sum);
