@@ -14,6 +14,7 @@ public static void main(String[] args) {
 }
 //这道题我不太会写
     public String decodeString(String s) {
+//    结果，也保存了括号内的单词
         StringBuilder res = new StringBuilder();
         Integer muitl=0;
 //        倍数栈
@@ -28,13 +29,16 @@ public static void main(String[] args) {
                 res = new StringBuilder();
             }else if(c==']'){
                 StringBuilder stringBuilder = new StringBuilder();
+//                获取临时结果
                 String pop = resStack.pop();
+//                获取倍数
                 Integer mutil1=mutilStack.pop();
                 for (int i = 0; i < mutil1; i++) stringBuilder.append(res);
+//                防止前面内容丢失，还要加上之前的临时结果
                 res=new StringBuilder(pop+stringBuilder);
 
             }else if(Character.isDigit(c)){
-//                出现一位数的数字，正确记录
+//                出现大于一位数的数字，正确记录
                 muitl=muitl*10+Integer.parseInt(c+"");
             }else{
 //                字母
