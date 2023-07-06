@@ -1,6 +1,5 @@
 package com.company.普通数组;
 
-import com.company.Main;
 
 import java.util.Arrays;
 

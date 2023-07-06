@@ -1,6 +1,5 @@
 package com.company.树;
 
-import com.company.Main;
 import com.company.TreeNode;
 
 /**

@@ -1,7 +1,6 @@
 package com.company.链表;
 
 import com.company.ListNode;
-import com.company.Main;
 
 /**
  * @author xiu
