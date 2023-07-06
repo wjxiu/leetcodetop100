@@ -14,18 +14,18 @@ public class 跳跃游戏2 {
 //        能跳到的范围
         int distance=0;
 //        跳跃的边界
-        int end=1;
+        int end=0;
         int start=0;
-        while (end< nums.length-1){
-            int max_dis=0;
-            for (int i = start; i < end; i++) {
-                max_dis=Math.max(max_dis,nums[i]+i);
+//        不太理解为什么要-1
+        for (int i = 0; i < nums.length-1; i++) {
+            distance=Math.max(distance,i+nums[i]);
+//            不得不跳，才跳，更新能跳到的最远距离
+            if (i==end){
+                step++;
+//                更新边界为之前找到的最远距离
+                end=distance;
             }
-            start=end;
-            end=max_dis;
-            step++;
         }
-
         return step;
     }
 }
